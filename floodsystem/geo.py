@@ -12,6 +12,8 @@ from .stationdata import build_station_list
 
 import math
 
+# for task 1B
+
 def haversine(p, coord):
     lon1,lat1 = p
     lon2,lat2 = coord
@@ -31,7 +33,6 @@ def haversine(p, coord):
 
 def stations_by_distance(stations, p):
 
-    stations = build_station_list()
     station_names = []
     station_coords = []
     station_towns = []
@@ -47,3 +48,26 @@ def stations_by_distance(stations, p):
     
     output = list(zip(station_names, station_towns, distances))
     return sorted_by_key(output, 2)
+
+# for task 1D
+
+def rivers_with_station(stations):
+
+    rivers_with_station = set()
+
+    for station in stations:
+        rivers_with_station.add(station.river)
+
+    return sorted(rivers_with_station)
+
+def stations_by_river(stations):
+    
+    station_river_dict = dict()
+
+    for station in stations:
+        if station.river in station_river_dict:
+            x = station_river_dict[station.river].append(station.name) # removing this entirely useless line of code breaks the whole thing ??? ideally would be replaced with a pass statement
+        else:
+            station_river_dict.update({station.river: [station.name]})
+
+    return station_river_dict
