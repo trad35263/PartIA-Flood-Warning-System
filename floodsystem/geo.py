@@ -82,3 +82,12 @@ def stations_by_river(stations):
             station_river_dict.update({station.river: [station.name]})
 
     return station_river_dict
+
+# for Task 1E
+
+def rivers_by_station_number(stations, N):
+    station_river_dict = stations_by_river(stations)
+    for key in station_river_dict.keys():
+        station_river_dict[key] = len(station_river_dict[key])
+    output = sorted(station_river_dict.items(), key=lambda x: x[1], reverse=True)
+    return output[:N]
