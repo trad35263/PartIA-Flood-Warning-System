@@ -49,6 +49,15 @@ def stations_by_distance(stations, p):
     output = list(zip(station_names, station_towns, distances))
     return sorted_by_key(output, 2)
 
+# for task 1C 
+
+def stations_within_radius(stations, centre, r):
+    stations_within_radius = []
+    for station in stations:
+        if haversine(station.coord, centre) <= r:
+            stations_within_radius.append(station.name)
+
+
 # for task 1D
 
 def rivers_with_station(stations):
