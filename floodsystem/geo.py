@@ -8,8 +8,6 @@ geographical data.
 
 from .utils import sorted_by_key  # noqa
 
-from .stationdata import build_station_list
-
 import math
 
 # for task 1B
