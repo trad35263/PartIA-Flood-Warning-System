@@ -28,7 +28,6 @@ def haversine(p, coord):
         
     return r * c / 1000
 
-
 def stations_by_distance(stations, p):
 
     station_names = []
@@ -55,8 +54,6 @@ def stations_within_radius(stations, centre, r):
         if haversine(station.coord, centre) <= r:
             stations_within_radius.append(station.name)
     return stations_within_radius 
-        
-
 
 # for task 1D
 
