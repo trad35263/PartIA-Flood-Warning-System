@@ -35,3 +35,27 @@ def test_build_station_list():
         station_cam.measure_id, dt=datetime.timedelta(days=dt))
     assert len(dates10) == len(levels10)
     assert len(dates10) > len(levels2)
+
+# for milestone 2
+
+def test_fetch_measure_levels():
+    
+    stations = build_station_list()
+
+    for station in stations:
+        if station.name == 'Cam':
+            station_cam = station
+            break
+
+    assert station_cam
+
+    dt = 2
+    dates2, levels2 = fetch_measure_levels(
+        station_cam.measure_id, dt=datetime.timedelta(days=dt))
+    assert len(dates2) == len(levels2)
+
+    dt = 10
+    dates10, levels10 = fetch_measure_levels(
+        station_cam.measure_id, dt=datetime.timedelta(days=dt))
+    assert len(dates10) == len(levels10)
+    assert len(dates10) > len(levels2)

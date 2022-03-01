@@ -39,3 +39,10 @@ def test_typical_range_consistent():
 def test_inconsistent_typical_range_stations():
     expected_answer = ["station_b", "station_c"]
     assert inconsistent_typical_range_stations(stations) == expected_answer
+
+# for milestone 2
+
+def test_relative_water_level():
+    assert MonitoringStation.relative_water_level(example_station_a) == None
+    assert MonitoringStation.relative_water_level(example_station_b) == None
+    assert MonitoringStation.relative_water_level(example_station_c) == None
