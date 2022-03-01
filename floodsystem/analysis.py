@@ -1,6 +1,7 @@
-from .stationdata import build_station_list
-from .datafetcher import fetch_measure_levels
+#from .stationdata import build_station_list
+#from .datafetcher import fetch_measure_levels
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
 
 # for Task 2F
@@ -24,11 +25,7 @@ def predict_future_level(dates, levels):
     assert len(dates) == len(levels)
     assert len(dates) > 0
 
-    x = matplotlib.dates.date2num(dates)
-    d0 = sum(x) / len(x)
-    coeff = np.polyfit(x - d0, levels, 3)
-    poly = np.poly1d(coeff)
+    poly, d0 = polyfit(dates, levels, 2)
 
-    # one day after the most recent day
-    future_date = max(x) + 1
-    return matplotlib.dates.num2date(future_date), poly(future_date - d0)
+    future_date = dates[0] + 1
+    return poly(future_date - d0)
