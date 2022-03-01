@@ -17,3 +17,22 @@ for station in stations:
     except:
         print("something unexpected happened")
         relative_level_tomorrow = 1 
+
+current_water_level = station.relative_water_level() or 1 
+
+# if already flooded, eg water level more the double typical, rank severe
+if current_water_level > 2:
+        risk_levels.append([station, "Severe"])
+# if extraperlated will flood within time X make severe
+elif realtive_level_tommorow > 1.9:
+        risk_levels.append([station, "Severe"])
+# if extrapolated will flood within time Y make high
+elif realtive_level_tommorow > 1.5:
+        risk_levels.append([station, "High"])
+elif current_water_level > 1.6:
+        risk_levels.append([station, "High"])
+elif current_water_level > 1.4:
+        risk_levels.append([station, "Moderate"])
+else: risk_levels.append([station, "Low"])
+
+print(risk_levels)
