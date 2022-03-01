@@ -24,6 +24,7 @@ current_water_level = station.relative_water_level() or 1
 if current_water_level > 2:
         risk_levels.append([station, "Severe"])
 # if extraperlated will flood within time X make severe
+        relative_level_tomorrow = 1 
 elif realtive_level_tommorow > 1.9:
         risk_levels.append([station, "Severe"])
 # if extrapolated will flood within time Y make high
